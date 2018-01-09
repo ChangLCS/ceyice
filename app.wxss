@@ -1,0 +1,21 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+input {
+  border: 2rpx solid #ccc;
+  padding: 10rpx 30rpx;
+  font-size: 32rpx;
+  width: 480rpx;
+  height: 60rpx;
+}
+
+.section {
+  margin-bottom: 30rpx;
+}

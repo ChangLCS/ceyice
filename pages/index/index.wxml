@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <form bindsubmit="onSubmit">
+
+    <view class="section">
+      <input name="userName" placeholder="请输入你的名字" />
+    </view>
+    <view class="section">
+      <radio-group name="sex" class="radio-group">
+        <label class="radio" wx:key="{{item.name}}" wx:for="{{sexOption}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="section">
+      <input name="birthday" placeholder="请输入您的出生年月" />
+    </view>
+    <view class="section">
+      <input name="info" placeholder="请输入别的信息" />
+    </view>
+
+    <view class="btn-area">
+      <button type="primary" formType="submit">提交</button>
+    </view>
+  </form>
+
+</view>
