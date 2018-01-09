@@ -1,0 +1,5 @@
+/**detail.wxss**/
+.detail-image {
+  width: 500rpx;
+  height: 500rpx;
+}

@@ -1,0 +1,6 @@
+<!--detail.wxml-->
+<view class="container">
+  <view>
+    <image class="detail-image" src="{{imgUrl}}"></image>
+  </view>
+</view>

@@ -1,31 +1,21 @@
-//index.js
+//detail.js
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: '测一测你的2018',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    sexOption: [{
-        name: 1,
-        value: '男'
-      },
-      {
-        name: 2,
-        value: '女',
-      },
-    ],
+    imgUrl: '../../images/img_001.jpg',
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    console.log('进来了');
+  onLoad: function (options) {
+    console.log('进来了', options);
+    if (options.id) {
+      this.setData({
+        imgUrl: `../../images/img_00${options.id}.jpg`,
+      });
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -39,8 +29,6 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         });
-        console.log('res.userInfo.gender', res.userInfo.gender);
-        this.setSex(res.userInfo.gender);
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -62,35 +50,6 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true,
-    });
-  },
-  //  设置性别默认
-  setSex(value) {
-    console.log(value);
-    const data = [];
-    let checked = false;
-    for (let i = 0; i < this.data.sexOption.length; i += 1) {
-      const item = this.data.sexOption[i];
-      if (item.name === value) {
-        checked = true;
-      } else {
-        checked = false;
-      }
-      data.push({
-        ...item,
-        checked,
-      });
-    }
-    this.setData({
-      sexOption: data,
-    });
-  },
-  //  表单提交
-  onSubmit(form) {
-    const i = Math.ceil(Math.random()*8);
-    wx.navigateTo({
-      // url: '../detail/detail',
-      url: `../detail/detail?id=${i}`,
     });
   },
 })
