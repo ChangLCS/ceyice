@@ -1,4 +1,9 @@
 /**app.wxss**/
+textarea,
+button {
+  box-sizing: border-box;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -6,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-} 
+}
 
 input {
   border: 2rpx solid #ccc;

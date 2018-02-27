@@ -1,4 +1,16 @@
 <!--index.wxml-->
+<view class="main-container">
+</view>
+
+<view class="main-edit">
+  <form bindsubmit="sendMessage">
+    <textarea class="main-edit-textarea" name="text" auto-height :fixed="true" />
+
+    <button class="main-edit-btn" type="primary" form-type="submit">发送</button>
+  </form>
+</view>
+
+<!-- 
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -37,4 +49,4 @@
     </view>
   </form>
 
-</view>
+</view> -->
