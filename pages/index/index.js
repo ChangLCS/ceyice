@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import api from '../../utils/api/index';
+import apiIndex from '../../utils/api/index/index';
 
 const app = getApp();
 
@@ -67,6 +67,10 @@ Page({
   },
   sendMessage(data) {
     console.log('发送消息', data);
+
+    apiIndex.sendMessage(data).then((res) => {
+      console.log('res', res);
+    });
 
     // api
     //   .get('/turing/turing', {

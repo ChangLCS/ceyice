@@ -1,21 +1,5 @@
-const baseUrl = 'https://way.jd.com/';
+import api from './api';
 
-const get = (url, data) => {
-  return wx.request({
-    url: `${baseUrl}${url}`,
-    data,
-    success(res) {
-      get.then(res);
-    },
-  });
-};
-
-get.prototype.then = (fun) => {
-  if (fun && typeof fun === 'function') {
-    fun();
-  }
-};
-
-module.exports = {
-  get,
-};
+export default api.setOption({
+  baseUrl: 'https://way.jd.com/',
+});
