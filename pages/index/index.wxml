@@ -2,8 +2,8 @@
 <view class="main-container">
   <view wx:key="item.id" wx:for="{{dataList}}">
     <text> {{item.time}} </text>
-    <text> {{item.text}} </text>
     <text> {{item.type}} </text>
+    <text> {{item.text}} </text>
   </view>
 </view>
 
