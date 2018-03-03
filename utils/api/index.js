@@ -1,6 +1,5 @@
 const baseUrl = 'https://way.jd.com/';
 
-
 const get = (url, data) => {
   return wx.request({
     url: `${baseUrl}${url}`,
@@ -12,7 +11,7 @@ const get = (url, data) => {
 };
 
 get.prototype.then = (fun) => {
-  if (fun && typeof fun === 'function'){
+  if (fun && typeof fun === 'function') {
     fun();
   }
 };
@@ -20,4 +19,3 @@ get.prototype.then = (fun) => {
 module.exports = {
   get,
 };
- 
