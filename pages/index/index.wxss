@@ -15,6 +15,10 @@
   display: inline-flex;
   max-height: 300rpx;
 }
+.main-edit-form {
+  display: block;
+  width: 100%;
+}
 .main-edit-textarea {
   flex: 10;
   width: 100%;

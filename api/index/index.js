@@ -1,5 +1,5 @@
 /**
- * api 初始化文件
+ * 主页文件的 api
  */
 
 import api from '../index';

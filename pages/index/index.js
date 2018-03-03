@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import apiIndex from '../../utils/api/index/index';
+import apiIndex from '../../api/index/index';
 
 const app = getApp();
 
@@ -20,6 +20,7 @@ Page({
         value: '女',
       },
     ],
+    dataList: [],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -29,7 +30,7 @@ Page({
   },
   onLoad: function() {
     wx.setNavigationBarTitle({
-      title: '与自卑的树洞聊天',
+      title: '与树洞的聊天',
     });
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
@@ -65,12 +66,42 @@ Page({
       });
     }
   },
-  sendMessage(data) {
-    console.log('发送消息', data);
-
-    apiIndex.sendMessage(data).then((res) => {
-      console.log('res', res);
+  sendMessage(form) {
+    const list = this.data.dataList;
+    list.push({
+      id: new Date().getTime(),
+      text: form.detail.value.text,
+      time: new Date(),
+      type: 0, //  用户自己
     });
+
+    this.setData({
+      dataList: list,
+    });
+
+    console.log('发送消息', form);
+
+    apiIndex
+      .sendMessage({
+        info: form.detail.value.text,
+      })
+      .then((res) => {
+        console.log('res', res);
+        if (res.data.code === '10000') {
+          const data = res.data.result.text;
+          const list = this.data.dataList;
+          list.push({
+            id: new Date().getTime(),
+            text: data,
+            time: new Date(),
+            type: 1, //  机器人回复
+          });
+
+          this.setData({
+            dataList: list,
+          });
+        }
+      });
 
     // api
     //   .get('/turing/turing', {

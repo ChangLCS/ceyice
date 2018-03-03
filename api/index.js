@@ -1,3 +1,7 @@
+/**
+ * api 初始化文件
+ */
+
 import api from './api';
 
 export default api.setOption({
