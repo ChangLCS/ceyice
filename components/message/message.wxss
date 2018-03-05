@@ -1,0 +1,4 @@
+/**message.wxss**/
+.main-container {
+  color: #f00;
+}

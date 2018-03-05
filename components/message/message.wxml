@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="main-container">
+  我是组件测试
+</view>

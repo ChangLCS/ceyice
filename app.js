@@ -9,8 +9,9 @@ App({
     // 登录
     wx.login({
       success: (res) => {
+        console.log('wx.login', res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.showToast('成功啦');
+        // wx.showToast('成功啦'); //  这个是登录成功的提示，就中间那个勾，先干掉，没什么卵用
       },
     });
     // 获取用户信息
