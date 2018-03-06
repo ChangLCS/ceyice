@@ -1,4 +1,9 @@
 <!--index.wxml-->
-<view class="main-container">
-  我是组件测试
+<view class="main {{item.align}}">
+  <view class="main-image">
+    <image class="main-image-src" mode="aspectFill" src="{{item.imgUrl}}"></image>
+  </view>
+  <view class="main-text">
+    <view class="main-text-text {{item.className}}">{{item.text}}</view>
+  </view>
 </view>

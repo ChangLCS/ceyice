@@ -1,35 +1,15 @@
 <!--index.wxml-->
 <view class="main-container">
 
-  <message id="message"></message>
   <view wx:key="item.id" wx:for="{{dataList}}">
-    <image style="width: 60px; height: 60px;" mode="aspectFill" src="{{item.imgUrl}}"></image>
-    <text> {{item.time}} </text>
-    <text> {{item.type}} </text>
-    <text> {{item.text}} </text>
+    <message id="message" item="{{item}}"></message>
   </view>
 </view>
 
 <view class="main-edit">
   <form class="main-edit-form" bindsubmit="sendMessage">
-    <textarea class="main-edit-textarea" name="text" auto-height :fixed="true" />
+    <textarea class="main-edit-textarea" name="text" auto-height fixed="true" show-confirm-bar="" />
 
     <button class="main-edit-btn" type="primary" form-type="submit">发送</button>
   </form>
 </view>
-
-<!-- 
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-
-</view> -->

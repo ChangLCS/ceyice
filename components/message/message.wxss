@@ -1,4 +1,46 @@
 /**message.wxss**/
-.main-container {
-  color: #f00;
+
+.main-image-src {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.main {
+  overflow: hidden;
+  margin: 20rpx 30rpx;
+}
+
+.left .main-image {
+  float: left;
+}
+
+.left .main-text {
+  float: left;
+}
+
+.right .main-image {
+  float: right;
+}
+
+.right .main-text {
+  float: right;
+}
+
+.main-text-text {
+  margin: 0 20rpx;
+  padding: 17rpx 20rpx;
+  border-radius: 10rpx;
+  line-height: 44rpx;
+  font-size: 30rpx;
+  max-width: 400rpx;
+}
+
+.bg-white {
+  background-color: #fff;
+  border: 1rpx solid #ddd;
+}
+
+.bg-green {
+  background-color: #9eea6a;
+  border: 1rpx solid #7ec94c;
 }

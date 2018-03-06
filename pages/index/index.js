@@ -6,6 +6,12 @@ const app = getApp();
 
 Page({
   data: {
+    messageData: {
+      text: '你好',
+      imgUrl: '../../images/!_top.jpg',
+      className: 'bg-green',
+      align: 'left',
+    },
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -64,20 +70,24 @@ Page({
   dataInit() {
     this.setDataList({
       id: new Date().getTime(),
-      text: `${this.data.userInfo.nickName}，天王盖地虎，下一句是什么？？？`,
       time: new Date(),
       type: 1, //  机器人回复
+      text: `${this.data.userInfo.nickName}，天王盖地虎，下一句是什么？？？`,
       imgUrl: this.data.imgTop,
+      className: 'bg-green',
+      align: 'left',
     });
   },
   //  发送消息
   sendMessage(form) {
     this.setDataList({
       id: new Date().getTime(),
-      text: form.detail.value.text,
       time: new Date(),
       type: 0, //  用户自己
+      text: form.detail.value.text,
       imgUrl: this.data.userInfo.avatarUrl,
+      className: 'bg-white',
+      align: 'right',
     });
 
     console.log('发送消息', form);
@@ -93,10 +103,12 @@ Page({
 
           this.setDataList({
             id: new Date().getTime(),
-            text: data,
             time: new Date(),
             type: 1, //  机器人回复
+            text: data,
             imgUrl: this.data.imgTop,
+            className: 'bg-green',
+            align: 'left',
           });
         }
       });
