@@ -1,3 +1,6 @@
+typings/*
+jsconfig.json*
+
 .DS_Store
 
 # Editor directories and files
