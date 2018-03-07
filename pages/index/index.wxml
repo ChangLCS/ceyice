@@ -1,14 +1,16 @@
 <!--index.wxml-->
-<view class="main-container">
+<scroll-view scroll-y scroll-into-view="{{scrollId}}" class="main-container" style="height: {{mainHeight}}px;">
+  <!-- <scroll-view scroll-y scroll-top="{{scorllTop}}" scroll-into-view="{{scrollId}}" class="main-container" style="height: {{mainHeight}}px;"> -->
 
   <view wx:key="item.id" wx:for="{{dataList}}">
-    <message id="message" item="{{item}}"></message>
+    <message id="message-{{item.id}}" item="{{item}}"></message>
   </view>
-</view>
+
+</scroll-view>
 
 <view class="main-edit">
   <form class="main-edit-form" bindsubmit="sendMessage">
-    <textarea class="main-edit-textarea" name="text" auto-height fixed="true" show-confirm-bar="" />
+    <input value="{{inputValue}}" name="text" cursor-spacing="4" class="main-edit-input" show-confirm-bar="" />
 
     <button class="main-edit-btn" type="primary" form-type="submit">发送</button>
   </form>

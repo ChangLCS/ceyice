@@ -3,6 +3,7 @@
 .main-image-src {
   width: 80rpx;
   height: 80rpx;
+  vertical-align: top;
 }
 
 .main {
