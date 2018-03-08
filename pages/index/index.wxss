@@ -1,11 +1,10 @@
 /**index.wxss**/
-.main-container {
+page {
   background-color: #ebebeb;
-  position: fixed;
+}
+
+.main-container {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow-y: scroll;
 }
 
 .main-edit {
@@ -14,12 +13,12 @@
   z-index: 2;
   bottom: 0;
   left: 0;
+  background-color: #fff;
 }
 .main-edit-form {
   width: 100%;
   display: block;
   position: relative;
-  background-color: #fff;
 }
 .main-edit-input {
   position: relative;

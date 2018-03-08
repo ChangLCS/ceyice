@@ -1,0 +1,51 @@
+{
+  "_from": "wx-api-common",
+  "_id": "wx-api-common@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-Rr/PPmy766pa575FpuuxAyAWnA1D18myZs0xLRyX5cUty+SudDl8noUrymuMz6O4xujuJ+Z38v9t5l6rV/WORA==",
+  "_location": "/wx-api-common",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "wx-api-common",
+    "name": "wx-api-common",
+    "escapedName": "wx-api-common",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/wx-api-common/-/wx-api-common-1.0.3.tgz",
+  "_shasum": "0bf0ccd2abd94b6f9526cca406148695d21290f3",
+  "_spec": "wx-api-common",
+  "_where": "F:\\Git\\program",
+  "author": {
+    "name": "Chang",
+    "email": "584911924@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ChangLCS/ceyice/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "基于微信小程序wx.request的一个api请求",
+  "files": [
+    "api"
+  ],
+  "homepage": "https://github.com/ChangLCS/ceyice#readme",
+  "license": "ISC",
+  "main": "api/index.js",
+  "name": "wx-api-common",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChangLCS/ceyice.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}

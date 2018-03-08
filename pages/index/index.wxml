@@ -1,6 +1,5 @@
 <!--index.wxml-->
 <scroll-view scroll-y scroll-into-view="{{scrollId}}" class="main-container" style="height: {{mainHeight}}px;">
-  <!-- <scroll-view scroll-y scroll-top="{{scorllTop}}" scroll-into-view="{{scrollId}}" class="main-container" style="height: {{mainHeight}}px;"> -->
 
   <view wx:key="item.id" wx:for="{{dataList}}">
     <message id="message-{{item.id}}" item="{{item}}"></message>
@@ -10,8 +9,11 @@
 
 <view class="main-edit">
   <form class="main-edit-form" bindsubmit="sendMessage">
-    <input value="{{inputValue}}" name="text" cursor-spacing="4" class="main-edit-input" show-confirm-bar="" />
+
+    <input value="{{inputValue}}" name="text" cursor-spacing="4" class="main-edit-input" show-confirm-bar="" bindfocus="onFocus"
+      bindblur="onBlur" />
 
     <button class="main-edit-btn" type="primary" form-type="submit">发送</button>
+
   </form>
 </view>

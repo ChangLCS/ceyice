@@ -2,7 +2,11 @@
  * api 初始化文件
  */
 
-import api from './api';
+// import api from './api';
+// import api from '../node_modules/wx-api-common/api/index.js';
+import api from '../modules/wx-api-common/api/index.js';
+
+// const api = require('../node_modules/wx-api-common/api/index.js');
 
 export default api.setOption({
   baseUrl: 'https://way.jd.com/', //  接口的基础地址配置

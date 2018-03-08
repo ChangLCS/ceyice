@@ -7,6 +7,9 @@ Component({
       //  信息
       type: Object,
       value: {
+        id: new Date().getTime(),
+        time: new Date(),
+        type: 1, //  机器人回复
         text: '测试一下',
         imgUrl: '../../images/!_top.jpg',
         className: 'bg-green',

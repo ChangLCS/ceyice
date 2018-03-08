@@ -19,7 +19,7 @@ Page({
     imgTop: '../../images/!_top.jpg',
     inputValue: '',
   },
-  onReady: function() {
+  onReady() {
     //获得message组件
     this.message = this.selectComponent('#message');
   },
@@ -93,7 +93,7 @@ Page({
       success(res) {
         that.setData({
           //  rpx 与 px 的转换为 300/750
-          mainHeight: res.windowHeight - 100 / 750 * 300,
+          mainHeight: res.windowHeight - 120 / 750 * 300,
           windowHeight: res.windowHeight,
           windowWidth: res.windowWidth,
         });
@@ -181,4 +181,8 @@ Page({
       hasUserInfo: true,
     });
   },
+  //  输入框获取焦点
+  onFocus(e) {},
+  //  输入框失去焦点
+  onBlur(e) {},
 });
