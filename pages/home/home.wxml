@@ -1,0 +1,19 @@
+<!--home.wxml-->
+
+<view class="home_body">
+
+  <view class="home_bg">
+    <image class="home_bg_img" src="../../images/home_bg.png"></image>
+  </view>
+
+  <view class="home_logo">
+    <image class="home_logo_img" src="../../images/home_logo.png"></image>
+  </view>
+
+  <view class="home_footer">
+    <button class="home_footer_btn">
+      <image class="home_footer_btn_img" src="../../images/home_start.png"></image>
+    </button>
+  </view>
+
+</view>
