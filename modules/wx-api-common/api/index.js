@@ -6,6 +6,7 @@
 
 const apiFun = () => {};
 
+//  url与data拼接
 const urlParams = (url, params) => {
   let ret = decodeURIComponent(url);
 
@@ -49,6 +50,10 @@ const urlParams = (url, params) => {
   return ret;
 };
 
+//  根据baseUrl跟path，得出api 的真正地址
+const getUrl = (baseUrl, path) =>
+  /(http:\/\/|https:\/\/)/.test(path) ? path : `${baseUrl || ''}${path}`;
+
 apiFun.prototype = {
   baseUrl: '',
   params: {},
@@ -76,32 +81,39 @@ apiFun.prototype = {
    * @param {*} data 参数
    */
   get(path, data) {
-    const that = this;
-
     //  请求前先拦截一下，看用户有没有自定义事件
-    if (typeof that.request === 'function') {
-      that.request(that);
+    if (typeof this.request === 'function') {
+      this.request(this);
     }
 
-    wx.request({
-      method: 'GET',
-      url: `${that.baseUrl || ''}${path}`,
-      data: {
-        ...that.params,
-        ...data,
-      },
-      success(res) {
-        if (typeof that.callback === 'function') {
-          that.callback(res, 1);
-        }
-      },
-      fail(res) {
-        if (typeof that.callback === 'function') {
-          that.callback(res, 0);
-        }
-      },
-    });
-    return this;
+    const _ = (resolve, reject) => {
+      wx.request({
+        method: 'GET',
+        url: getUrl(this.baseUrl, path),
+        data: {
+          ...this.params,
+          ...data,
+        },
+        success: (res) => {
+          //  回调前先拦截一下，看用户有没有自定义事件
+          if (typeof this.response === 'function') {
+            this.response(res);
+          }
+
+          return resolve(res);
+        },
+        fail: (res) => {
+          //  回调前先拦截一下，看用户有没有自定义事件
+          if (typeof this.response === 'function') {
+            this.response(res);
+          }
+
+          return reject(res);
+        },
+      });
+    };
+
+    return new Promise(_);
   },
   /**
    * post 方法
@@ -114,80 +126,40 @@ apiFun.prototype = {
    * });
    */
   post(path, data, params) {
-    const that = this;
-
     //  请求前先拦截一下，看用户有没有自定义事件
-    if (typeof that.request === 'function') {
-      that.request(that);
+    if (typeof this.request === 'function') {
+      this.request(this);
     }
 
     const paramsSend = params && typeof params === 'object' ? params.params : {};
 
-    wx.request({
-      method: 'POST',
-      url: urlParams(`${that.baseUrl || ''}${path}`, {
-        ...that.params,
-        ...paramsSend,
-      }),
-      data,
-      success(res) {
-        if (typeof that.callback === 'function') {
-          that.callback(res, 1);
-        }
-      },
-      fail(res) {
-        if (typeof that.callback === 'function') {
-          that.callback(res, 0);
-        }
-      },
-    });
-    return this;
-  },
-  //  then  回调成功事件
-  then(callback) {
-    if (typeof callback === 'function') {
-      this.success = callback;
-    }
-    return this;
-  },
-  //  catch 回调失败事件
-  catch(callback) {
-    if (typeof callback === 'function') {
-      this.fail = callback;
-    }
-    return this;
-  },
-  /**
-   *  回调函数，无论什么请求，成功还是失败，先往这里跑
-   * @param {*} res 回调的结果
-   * @param {*} type 回调的类型，0:fail，1:success，默认都往success跑
-   */
-  callback(res, type) {
-    //  回调前先拦截一下，看用户有没有自定义事件
-    if (typeof this.response === 'function') {
-      this.response(res);
-    }
+    const _ = (resolve, reject) => {
+      wx.request({
+        method: 'POST',
+        url: urlParams(getUrl(this.baseUrl, path), {
+          ...this.params,
+          ...paramsSend,
+        }),
+        data,
+        success: (res) => {
+          //  回调前先拦截一下，看用户有没有自定义事件
+          if (typeof this.response === 'function') {
+            this.response(res);
+          }
 
-    switch (type) {
-      case 0:
-        if (typeof this.fail === 'function') {
-          this.fail(res);
-        }
-        break;
-      default:
-        if (typeof this.success === 'function') {
-          this.success(res);
-        }
-        break;
-    }
-  },
-  //  success 的回调
-  success(res) {
-    return this;
-  },
-  //  fail  的回调
-  fail(res) {
-    return this;
+          return resolve(res);
+        },
+        fail: (res) => {
+          //  回调前先拦截一下，看用户有没有自定义事件
+          if (typeof this.response === 'function') {
+            this.response(res);
+          }
+
+          return reject(res);
+        },
+      });
+    };
+    return new Promise(_);
   },
 };
 
