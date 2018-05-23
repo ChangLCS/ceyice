@@ -12,7 +12,10 @@
 
   <view class="home_footer">
     <button class="home_footer_btn">
-      <image class="home_footer_btn_img" src="../../images/home_start.png"></image>
+      <image class="home_footer_btn_img" src="../../images/home_room.png"></image>
+    </button>
+    <button class="home_footer_btn">
+      <image class="home_footer_btn_img" src="../../images/home_practice.png"></image>
     </button>
   </view>
 

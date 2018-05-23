@@ -54,7 +54,7 @@
 }
 
 .home_footer_btn {
-  margin-bottom: 20rpx;
+  margin-bottom: 40rpx;
   background-color: rgba(0, 0, 0, 0);
   height: 160rpx;
 }
