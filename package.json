@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "做一个小程序，测一测",
   "main": "app.js",
-  "dependencies": {
-    "wx-api-common": "^1.0.5"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
