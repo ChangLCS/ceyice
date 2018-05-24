@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "做一个小程序，测一测",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "mongoose": "^5.1.2"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
