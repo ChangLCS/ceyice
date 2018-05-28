@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import apiIndex from '../../api/index/index';
+import test from '../../api/index/test';
 
 const app = getApp();
 
@@ -34,7 +35,7 @@ Page({
       backgroundColor: '#393a3f',
     });
 
-    console.log('进来了', this.data.canIUse);
+    console.log('进来了aaa', this.data.canIUse);
     if (app.globalData.userInfo) {
       console.log('有没有用户的信息', app.globalData.userInfo);
       this.setData({
@@ -162,9 +163,42 @@ Page({
           });
         }
       });
+
+    test
+      .sendMessage({
+        info,
+      })
+      .then((res) => {
+        console.log('res', res);
+        if (res.data.code === '10000') {
+          const data = res.data.result.text;
+
+          const message = {
+            id: new Date().getTime(),
+            time: new Date(),
+            type: 1, //  机器人回复
+            text: data,
+            imgUrl: this.data.imgTop,
+            className: 'bg-green',
+            align: 'left',
+          };
+
+          this.setDataList(message);
+
+          this.setData({
+            inputValue: '',
+            scrollId: `message-${message.id}`,
+          });
+
+          wx.setNavigationBarTitle({
+            title: `${that.data.navTitle}`,
+          });
+        }
+      });
   },
   //  给dataList插入新的聊天信息
   setDataList(data) {
+    console.log('准备聊天了');
     const list = this.data.dataList || [];
     list.push(data);
 

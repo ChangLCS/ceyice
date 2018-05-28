@@ -42,7 +42,11 @@ const urlParams = (url, params) => {
       ret += '?';
       for (let i = 0; i < keys.length; i += 1) {
         const key = keys[i];
-        ret += `${i === 0 ? '' : '&'}${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`;
+        ret += `${i === 0 ? '' : typeof data[key] === 'undefined' ? '' : '&'}${
+          typeof data[key] === 'undefined'
+            ? ''
+            : `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        }`;
       }
     }
   }
@@ -68,12 +72,12 @@ apiFun.prototype = {
    * @param {*} response 回调拦截器
    */
   setOption(data) {
-    this.baseUrl = data.baseUrl || '';
-    this.params = data.params || {};
-    this.request = data.request || undefined;
-    this.response = data.response || undefined;
-
-    return this;
+    const _ = new apiFun();
+    _.baseUrl = data.baseUrl || '';
+    _.params = data.params || {};
+    _.request = data.request || undefined;
+    _.response = data.response || undefined;
+    return _;
   },
   /**
    * get 方法
@@ -89,11 +93,10 @@ apiFun.prototype = {
     const _ = (resolve, reject) => {
       wx.request({
         method: 'GET',
-        url: getUrl(this.baseUrl, path),
-        data: {
+        url: urlParams(getUrl(this.baseUrl, path), {
           ...this.params,
           ...data,
-        },
+        }),
         success: (res) => {
           //  回调前先拦截一下，看用户有没有自定义事件
           if (typeof this.response === 'function') {

@@ -13,6 +13,7 @@ export default api.setOption({
   params: {
     //  基础参数，即每次调用都要传的参
     appkey: '768719fda49c264028f98e20fa209221',
+    test: undefined,
   },
   request: (a) => {
     a.params.name = 'test';
