@@ -1,8 +1,8 @@
 {
   "_from": "wx-api-common@latest",
-  "_id": "wx-api-common@1.0.5",
+  "_id": "wx-api-common@1.0.6",
   "_inBundle": false,
-  "_integrity": "sha512-r35P07W2wE6E6BARG8IbaeIlRFg0wO7r1pFoJP3xRPPqP9cKIrC0no1KBnm3LgiATCZ7JVobJxXUsfHODtJsoA==",
+  "_integrity": "sha512-hrTmVJS3/jmu/WjzfIzLhfJ+1N2R35qU6KnkGuZHOQJBy8iFSyA43lSugzDFltrakzbH7ZnVgn01pvBGEMOG5A==",
   "_location": "/wx-api-common",
   "_phantomChildren": {},
   "_requested": {
@@ -19,8 +19,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/wx-api-common/-/wx-api-common-1.0.5.tgz",
-  "_shasum": "470fa359697ed5fc76977b62767bbe868784f409",
+  "_resolved": "https://registry.npmjs.org/wx-api-common/-/wx-api-common-1.0.6.tgz",
+  "_shasum": "533179b4025ea4dd9a99fa381544c080353fd6cf",
   "_spec": "wx-api-common@latest",
   "_where": "F:\\Git\\program\\wechat",
   "author": {
@@ -31,6 +31,7 @@
     "url": "https://github.com/ChangLCS/ceyice/issues"
   },
   "bundleDependencies": false,
+  "dependencies": {},
   "deprecated": false,
   "description": "基于微信小程序wx.request的一个api请求",
   "files": [
@@ -47,5 +48,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.5"
+  "version": "1.0.6"
 }

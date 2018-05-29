@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wx-api-common": "^1.0.5"
+    "wx-api-common": "^1.0.6"
   }
 }
